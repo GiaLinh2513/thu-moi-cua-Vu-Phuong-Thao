@@ -5,26 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Graduation Invitation – Vũ Phương Thảo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&subset=vietnamese&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
+/* Chữ số 0-9 và dấu ":" dùng Times New Roman; các ký tự khác vẫn là Playfair Display */
+@font-face{font-family:'NumTNR';font-style:normal;font-weight:100 499;unicode-range:U+0030-003A;src:local('Times New Roman'),local('TimesNewRomanPSMT'),local('Liberation Serif'),local('Tinos'),local('Times')}
+@font-face{font-family:'NumTNR';font-style:normal;font-weight:500 900;unicode-range:U+0030-003A;src:local('Times New Roman Bold'),local('TimesNewRomanPS-BoldMT'),local('Liberation Serif Bold'),local('Tinos Bold'),local('Times Bold')}
+@font-face{font-family:'NumTNR';font-style:italic;font-weight:100 499;unicode-range:U+0030-003A;src:local('Times New Roman Italic'),local('TimesNewRomanPS-ItalicMT'),local('Liberation Serif Italic'),local('Tinos Italic'),local('Times Italic')}
+@font-face{font-family:'NumTNR';font-style:italic;font-weight:500 900;unicode-range:U+0030-003A;src:local('Times New Roman Bold Italic'),local('TimesNewRomanPS-BoldItalicMT'),local('Liberation Serif Bold Italic'),local('Tinos Bold Italic'),local('Times Bold Italic')}
 :root{
-  --page:#dfe7e1; --page-ink:#22344f; --env:#8a1620; --env-dark:#5c0f16; --env-front:#b1232f;
+  --page:#dfe7e1; --page-ink:#22344f; --env:#6f1828; --env-dark:#5c0f16; --env-front:#5b1120; --seal-gold:#be9952;
   --paper:#fdfbf7; --ink:#22344f; --muted:#5d6b80; --rule:#d9d3c6; --seal:#9c2f3a; --gold:#b88a3e; --red:#9c2f3a;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){ --page:#141c26; --page-ink:#e6ebf2; --env:#a52836; --env-dark:#7a1a22; --env-front:#c23b48; }
+  :root:not([data-theme="light"]){ --page:#141c26; --page-ink:#e6ebf2; }
 }
-:root[data-theme="dark"]{ --page:#141c26; --page-ink:#e6ebf2; --env:#a52836; --env-dark:#7a1a22; --env-front:#c23b48; }
+:root[data-theme="dark"]{ --page:#141c26; --page-ink:#e6ebf2; }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{background:var(--page);color:var(--page-ink);font-family:'Jost',system-ui,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:24px 16px}
+body{background:var(--page);color:var(--page-ink);font-family:'NumTNR','Playfair Display',Georgia,serif;font-weight:400;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:24px 16px}
 main{width:100%;max-width:440px;margin:0 auto}
 
 /* Envelope */
 .stage{transition:opacity .5s,transform .5s}
 .stage.gone{opacity:0;transform:translateY(24px) scale(.96);pointer-events:none;position:absolute;visibility:hidden}
-.hint{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;margin:0 0 56px}
+.hint{text-align:center;font-family:'NumTNR','Playfair Display',Georgia,serif;font-style:italic;font-size:1.1rem;margin:0 0 56px}
 .env{position:relative;width:100%;aspect-ratio:3/2;perspective:900px;cursor:pointer;border:0;background:none;padding:0;display:block;margin-top:70px}
 .env:focus-visible{outline:3px solid var(--gold);outline-offset:8px;border-radius:6px}
 .env>*{position:absolute;left:0;right:0}
@@ -35,7 +41,7 @@ main{width:100%;max-width:440px;margin:0 auto}
 .paper i:nth-child(3){width:80%}
 .front{inset:0;background:var(--env-front);z-index:2;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:6px}
 .flap{top:0;height:58%;background:var(--env);z-index:3;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease,z-index 0s .35s;backface-visibility:visible}
-.seal{z-index:4;left:50%;right:auto;top:58%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c0485a,var(--seal) 65%);display:grid;place-items:center;color:#f6e7c8;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .3s,transform .3s}
+.seal{z-index:4;left:50%;right:auto;top:58%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d9bb7e,var(--seal-gold) 65%);display:grid;place-items:center;color:#5b1120;font-family:'NumTNR','Playfair Display',Georgia,serif;font-size:1.3rem;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .3s,transform .3s}
 .env.open .flap{transform:rotateX(180deg);z-index:0}
 .env.open .paper{transform:translateY(-62%)}
 .env.open .seal{opacity:0;transform:scale(.6)}
@@ -44,27 +50,25 @@ main{width:100%;max-width:440px;margin:0 auto}
 .letter{display:none;background:var(--paper);color:var(--ink);border-radius:4px;padding:40px 30px 32px;box-shadow:0 14px 40px rgba(20,30,45,.22);border-top:5px solid var(--gold);text-align:center;margin:0 auto}
 .letter.show{display:block;animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
-.kicker{margin:0 0 6px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.2rem}
-h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.05;margin:0 0 26px;letter-spacing:.2px;color:var(--red)}
-.dear{display:flex;align-items:baseline;justify-content:center;gap:10px;margin:0 0 16px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic}
+.kicker{margin:0 0 6px;color:var(--muted);font-family:'NumTNR','Playfair Display',Georgia,serif;font-style:italic;font-weight:400;font-size:1.05rem}
+h1{font-style:normal;font-family:'NumTNR','Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(1.8rem,7.5vw,2.4rem);line-height:1.2;margin:0 0 26px;letter-spacing:.2px;color:var(--red)}
+.dear{display:flex;align-items:baseline;justify-content:center;gap:10px;margin:0 0 16px;font-family:'NumTNR','Playfair Display',Georgia,serif;font-size:1.3rem;font-style:italic}
+.dear label{font-style:normal}
 .dear input{font:inherit;font-style:italic;color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);border-radius:0;width:min(62%,240px);text-align:center;padding:2px 4px}
 .dear input:focus{outline:none;border-bottom-color:var(--seal);border-bottom-width:2px}
-.body{font-family:'Cormorant Garamond',serif;font-size:1.28rem;line-height:1.45;margin:0 auto 26px;max-width:32ch}
+.body{font-style:normal;font-family:'NumTNR','Playfair Display',Georgia,serif;font-size:1.12rem;line-height:1.55;margin:0 auto 26px;max-width:32ch}
 dl{margin:0 0 26px;text-align:center}
 dl div{padding:14px 0;border-top:1px solid var(--rule)}
 dl div:last-child{border-bottom:1px solid var(--rule)}
-dt{font-size:.9rem;color:var(--muted);margin-bottom:3px}
-dd{margin:0;font-size:1.05rem;line-height:1.4;font-weight:500}
+dt{font-style:normal;font-weight:400;font-size:.9rem;color:var(--muted);margin-bottom:3px}
+dd{margin:0;font-size:1.05rem;line-height:1.4;font-weight:600}
 dd small{display:block;font-weight:400;color:var(--muted);font-size:.92rem;margin-top:2px}
-.close{font-family:'Cormorant Garamond',serif;font-size:1.25rem;margin:0}
-.sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:2rem;margin:2px 0 0;color:var(--seal)}
-.tools{margin-top:22px;display:flex;justify-content:center}
-button.next{font:inherit;font-size:.9rem;color:var(--muted);background:none;border:1px solid var(--rule);border-radius:999px;padding:8px 16px;cursor:pointer}
-button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.close{font-family:'NumTNR','Playfair Display',Georgia,serif;font-size:1.1rem;margin:0}
+.sig{font-family:'NumTNR','Playfair Display',Georgia,serif;font-style:italic;font-weight:600;font-size:1.7rem;margin:2px 0 0;color:var(--seal)}
 
 /* RSVP */
 .rsvp{margin:0 0 30px}
-.kindly{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;color:var(--seal);margin:0 0 10px}
+.kindly{font-style:normal;font-family:'NumTNR','Playfair Display',Georgia,serif;font-weight:600;font-size:1.3rem;color:var(--seal);margin:0 0 10px}
 .rsvp-q2{font-size:1.05rem;color:var(--ink);margin:0 0 20px}
 .rsvp-btns-stack{display:flex;flex-direction:column;gap:10px}
 .rsvp-btn-full{font:inherit;font-size:1rem;padding:15px 20px;border-radius:8px;cursor:pointer;width:100%;transition:transform .15s}
@@ -73,9 +77,9 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .rsvp-btn-full.decline{background:transparent;border:1.5px solid var(--seal);color:var(--seal)}
 .rsvp-btn-full:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .rsvp-btn-full[disabled]{opacity:.5;cursor:default}
-.rsvp-thanks{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--seal);margin:16px 0 0}
+.rsvp-thanks{font-family:'NumTNR','Playfair Display',Georgia,serif;font-style:italic;color:var(--seal);margin:16px 0 0}
 
-@media print{.tools{display:none}body{background:#fff}.letter{box-shadow:none}}
+@media print{body{background:#fff}.letter{box-shadow:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -99,7 +103,7 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
     <p class="body">After years of study, I’m graduating, and it would mean the world to share this day with you.</p>
     <dl>
       <div><dt>Date</dt><dd>Saturday, 7 November 2026</dd></div>
-      <div><dt>Time</dt><dd>Ceremony 10:30 – 11:30<small>Graduates gather from 07:00</small></dd></div>
+      <div><dt>Time</dt><dd>Ceremony 10:30 – 11:30</dd></div>
       <div><dt>Place</dt><dd>Hall A.116<small>59C Nguyen Dinh Chieu Street, Xuan Hoa Ward, HCMC</small></dd></div>
       <div><dt>Contact</dt><dd>0398180759 – Thao</dd></div>
     </dl>
@@ -116,12 +120,11 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
     <p class="close">With love,</p>
     <p class="sig">VU PHUONG THAO</p>
-    <div class="tools"><button class="next" id="next" type="button">Clear name for the next guest</button></div>
   </article>
 </main>
 <script>
 (function(){
-  var env=document.getElementById('env'),stage=document.getElementById('stage'),letter=document.getElementById('letter'),guest=document.getElementById('guest'),next=document.getElementById('next');
+  var env=document.getElementById('env'),stage=document.getElementById('stage'),letter=document.getElementById('letter'),guest=document.getElementById('guest');
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function show(){stage.classList.add('gone');letter.classList.add('show');}
   env.addEventListener('click',function(){
@@ -130,7 +133,6 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
     if(reduce){show();return;}
     setTimeout(show,1700);
   });
-  next.addEventListener('click',function(){guest.value='';guest.focus();});
 })();
 
 (function(){
@@ -159,12 +161,15 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 })();
 
 (function(){
-  // A link ending in #ten-khach pre-fills the guest name (e.g. …/index.html#Thao).
+  // Link dạng  ...?to=Thảo  (giữ nguyên dấu) hoặc ...#Thao  sẽ tự điền tên khách vào ô "Dear".
   var guest=document.getElementById('guest');
-  if(location.hash){
-    var fromHash=decodeURIComponent(location.hash.slice(1)).replace(/-/g,' ');
-    if(fromHash)guest.value=fromHash;
+  var name='';
+  try{name=new URLSearchParams(location.search).get('to')||'';}catch(e){}
+  if(!name&&location.hash){
+    try{name=decodeURIComponent(location.hash.slice(1)).replace(/-/g,' ');}catch(e){}
   }
+  name=name.trim().slice(0,60);
+  if(name)guest.value=name;
 })();
 </script>
 </body>
