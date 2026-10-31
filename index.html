@@ -9,7 +9,7 @@
 <style>
 :root{
   --page:#dfe7e1; --page-ink:#22344f; --env:#8a1620; --env-dark:#5c0f16; --env-front:#b1232f;
-  --paper:#fdfbf7; --ink:#22344f; --muted:#5d6b80; --rule:#d9d3c6; --seal:#9c2f3a; --gold:#b88a3e;
+  --paper:#fdfbf7; --ink:#22344f; --muted:#5d6b80; --rule:#d9d3c6; --seal:#9c2f3a; --gold:#b88a3e; --red:#9c2f3a;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
@@ -19,8 +19,8 @@
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{background:var(--page);color:var(--page-ink);font-family:'Jost',system-ui,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:24px 16px}
-main{width:100%;max-width:440px}
- 
+main{width:100%;max-width:440px;margin:0 auto}
+
 /* Envelope */
 .stage{transition:opacity .5s,transform .5s}
 .stage.gone{opacity:0;transform:translateY(24px) scale(.96);pointer-events:none;position:absolute;visibility:hidden}
@@ -39,18 +39,18 @@ main{width:100%;max-width:440px}
 .env.open .flap{transform:rotateX(180deg);z-index:0}
 .env.open .paper{transform:translateY(-62%)}
 .env.open .seal{opacity:0;transform:scale(.6)}
- 
+
 /* Letter */
-.letter{display:none;background:var(--paper);color:var(--ink);border-radius:4px;padding:40px 30px 32px;box-shadow:0 14px 40px rgba(20,30,45,.22);border-top:5px solid var(--gold);text-align:center}
+.letter{display:none;background:var(--paper);color:var(--ink);border-radius:4px;padding:40px 30px 32px;box-shadow:0 14px 40px rgba(20,30,45,.22);border-top:5px solid var(--gold);text-align:center;margin:0 auto}
 .letter.show{display:block;animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
-.kicker{margin:0 0 6px;color:var(--muted);font-size:.95rem}
-h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.05;margin:0 0 26px;letter-spacing:.2px}
+.kicker{margin:0 0 6px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.2rem}
+h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.05;margin:0 0 26px;letter-spacing:.2px;color:var(--red)}
 .dear{display:flex;align-items:baseline;justify-content:center;gap:10px;margin:0 0 16px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic}
 .dear input{font:inherit;font-style:italic;color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);border-radius:0;width:min(62%,240px);text-align:center;padding:2px 4px}
 .dear input:focus{outline:none;border-bottom-color:var(--seal);border-bottom-width:2px}
 .body{font-family:'Cormorant Garamond',serif;font-size:1.28rem;line-height:1.45;margin:0 auto 26px;max-width:32ch}
-dl{margin:0 0 26px;text-align:left}
+dl{margin:0 0 26px;text-align:center}
 dl div{padding:14px 0;border-top:1px solid var(--rule)}
 dl div:last-child{border-bottom:1px solid var(--rule)}
 dt{font-size:.9rem;color:var(--muted);margin-bottom:3px}
@@ -61,19 +61,20 @@ dd small{display:block;font-weight:400;color:var(--muted);font-size:.92rem;margi
 .tools{margin-top:22px;display:flex;justify-content:center}
 button.next{font:inherit;font-size:.9rem;color:var(--muted);background:none;border:1px solid var(--rule);border-radius:999px;padding:8px 16px;cursor:pointer}
 button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
- 
+
 /* RSVP */
 .rsvp{margin:0 0 30px}
-.rsvp-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;margin:0 0 16px}
-.rsvp-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.rsvp-btn{font:inherit;font-size:.95rem;padding:11px 22px;border-radius:999px;cursor:pointer;transition:transform .15s}
-.rsvp-btn:active{transform:scale(.96)}
-.rsvp-btn.yes{background:var(--gold);border:1px solid var(--gold);color:#2a1d08;font-weight:500}
-.rsvp-btn.no{background:none;border:1px solid var(--rule);color:var(--muted)}
-.rsvp-btn:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
-.rsvp-btn[disabled]{opacity:.5;cursor:default}
+.kindly{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;color:var(--seal);margin:0 0 10px}
+.rsvp-q2{font-size:1.05rem;color:var(--ink);margin:0 0 20px}
+.rsvp-btns-stack{display:flex;flex-direction:column;gap:10px}
+.rsvp-btn-full{font:inherit;font-size:1rem;padding:15px 20px;border-radius:8px;cursor:pointer;width:100%;transition:transform .15s}
+.rsvp-btn-full:active{transform:scale(.98)}
+.rsvp-btn-full.accept{background:var(--seal);border:1.5px solid var(--seal);color:#fdfbf7;font-weight:500}
+.rsvp-btn-full.decline{background:transparent;border:1.5px solid var(--seal);color:var(--seal)}
+.rsvp-btn-full:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.rsvp-btn-full[disabled]{opacity:.5;cursor:default}
 .rsvp-thanks{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--seal);margin:16px 0 0}
- 
+
 @media print{.tools{display:none}body{background:#fff}.letter{box-shadow:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -90,7 +91,7 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
       <div class="seal" aria-hidden="true">T</div>
     </button>
   </section>
- 
+
   <article class="letter" id="letter" aria-label="Graduation invitation">
     <p class="kicker">Western Sydney University Vietnam</p>
     <h1>You’re invited to my graduation</h1>
@@ -102,16 +103,17 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
       <div><dt>Place</dt><dd>Hall A.116<small>59C Nguyen Dinh Chieu Street, Xuan Hoa Ward, HCMC</small></dd></div>
       <div><dt>Contact</dt><dd>0398180759 – Thao</dd></div>
     </dl>
- 
+
     <div class="rsvp" id="rsvp">
-      <p class="rsvp-q">Will you be able to join?</p>
-      <div class="rsvp-btns">
-        <button type="button" class="rsvp-btn yes" id="rsvpYes">I’ll be there</button>
-        <button type="button" class="rsvp-btn no" id="rsvpNo">Sorry, can’t make it</button>
+      <p class="kindly">Kindly reply</p>
+      <p class="rsvp-q2">Will you be able to join me?</p>
+      <div class="rsvp-btns-stack">
+        <button type="button" class="rsvp-btn-full accept" id="rsvpYes">Joyfully accept</button>
+        <button type="button" class="rsvp-btn-full decline" id="rsvpNo">Regretfully decline</button>
       </div>
       <p class="rsvp-thanks" id="rsvpThanks" hidden></p>
     </div>
- 
+
     <p class="close">With love,</p>
     <p class="sig">VU PHUONG THAO</p>
     <div class="tools"><button class="next" id="next" type="button">Clear name for the next guest</button></div>
@@ -130,20 +132,20 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
   });
   next.addEventListener('click',function(){guest.value='';guest.focus();});
 })();
- 
+
 (function(){
-  // Paste your Google Apps Script "Web app" URL here (ends in /exec).
-  var SHEET_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
- 
+  // Google Apps Script "Web app" URL (ends in /exec). RSVP answers are sent here.
+  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycby5UUP3rolzka-rQ8cQObZRTKbO7fAkFSp0ZM-U-a4gsFnbwHpLtKBlPUv2odJ9mc9D/exec";
+
   var yesBtn=document.getElementById('rsvpYes'),noBtn=document.getElementById('rsvpNo');
   var thanks=document.getElementById('rsvpThanks'),guest=document.getElementById('guest');
- 
+
   function sendToSheet(entry){
     if(!SHEET_ENDPOINT||SHEET_ENDPOINT.indexOf('PASTE_')===0)return;
     // text/plain avoids a CORS preflight that Apps Script doesn't handle; the body is still JSON.
     fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(entry)}).catch(function(){});
   }
- 
+
   function respond(answer){
     yesBtn.disabled=true;noBtn.disabled=true;
     var name=(guest.value||'').trim()||'Guest';
@@ -151,9 +153,18 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
     thanks.textContent=answer==='yes'?'Thank you, '+name+' — see you there!':'Thank you for letting me know, '+name+'.';
     sendToSheet({name:name,response:answer,ts:new Date().toISOString()});
   }
- 
+
   yesBtn.addEventListener('click',function(){respond('yes')});
   noBtn.addEventListener('click',function(){respond('no')});
+})();
+
+(function(){
+  // A link ending in #ten-khach pre-fills the guest name (e.g. …/index.html#Thao).
+  var guest=document.getElementById('guest');
+  if(location.hash){
+    var fromHash=decodeURIComponent(location.hash.slice(1)).replace(/-/g,' ');
+    if(fromHash)guest.value=fromHash;
+  }
 })();
 </script>
 </body>
