@@ -159,12 +159,15 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 })();
 
 (function(){
-  // A link ending in #ten-khach pre-fills the guest name (e.g. …/index.html#Thao).
+  // Link dạng  ...?to=Thảo  (giữ nguyên dấu) hoặc ...#Thao  sẽ tự điền tên khách vào ô "Dear".
   var guest=document.getElementById('guest');
-  if(location.hash){
-    var fromHash=decodeURIComponent(location.hash.slice(1)).replace(/-/g,' ');
-    if(fromHash)guest.value=fromHash;
+  var name='';
+  try{name=new URLSearchParams(location.search).get('to')||'';}catch(e){}
+  if(!name&&location.hash){
+    try{name=decodeURIComponent(location.hash.slice(1)).replace(/-/g,' ');}catch(e){}
   }
+  name=name.trim().slice(0,60);
+  if(name)guest.value=name;
 })();
 </script>
 </body>
