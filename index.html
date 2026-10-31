@@ -8,19 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&subset=vietnamese&display=swap" rel="stylesheet">
 <style>
 :root{
-  --page:#dfe7e1; --page-ink:#22344f; --env:#2a4160; --env-dark:#1e3049; --env-front:#335075;
+  --page:#dfe7e1; --page-ink:#22344f; --env:#8a1620; --env-dark:#5c0f16; --env-front:#b1232f;
   --paper:#fdfbf7; --ink:#22344f; --muted:#5d6b80; --rule:#d9d3c6; --seal:#9c2f3a; --gold:#b88a3e;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){ --page:#141c26; --page-ink:#e6ebf2; --env:#3a5679; --env-dark:#2a4160; --env-front:#46648a; }
+  :root:not([data-theme="light"]){ --page:#141c26; --page-ink:#e6ebf2; --env:#a52836; --env-dark:#7a1a22; --env-front:#c23b48; }
 }
-:root[data-theme="dark"]{ --page:#141c26; --page-ink:#e6ebf2; --env:#3a5679; --env-dark:#2a4160; --env-front:#46648a; }
+:root[data-theme="dark"]{ --page:#141c26; --page-ink:#e6ebf2; --env:#a52836; --env-dark:#7a1a22; --env-front:#c23b48; }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{background:var(--page);color:var(--page-ink);font-family:'Jost',system-ui,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:24px 16px}
 main{width:100%;max-width:440px}
-
+ 
 /* Envelope */
 .stage{transition:opacity .5s,transform .5s}
 .stage.gone{opacity:0;transform:translateY(24px) scale(.96);pointer-events:none;position:absolute;visibility:hidden}
@@ -39,7 +39,7 @@ main{width:100%;max-width:440px}
 .env.open .flap{transform:rotateX(180deg);z-index:0}
 .env.open .paper{transform:translateY(-62%)}
 .env.open .seal{opacity:0;transform:scale(.6)}
-
+ 
 /* Letter */
 .letter{display:none;background:var(--paper);color:var(--ink);border-radius:4px;padding:40px 30px 32px;box-shadow:0 14px 40px rgba(20,30,45,.22);border-top:5px solid var(--gold);text-align:center}
 .letter.show{display:block;animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
@@ -61,7 +61,7 @@ dd small{display:block;font-weight:400;color:var(--muted);font-size:.92rem;margi
 .tools{margin-top:22px;display:flex;justify-content:center}
 button.next{font:inherit;font-size:.9rem;color:var(--muted);background:none;border:1px solid var(--rule);border-radius:999px;padding:8px 16px;cursor:pointer}
 button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-
+ 
 /* RSVP */
 .rsvp{margin:0 0 30px}
 .rsvp-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;margin:0 0 16px}
@@ -73,7 +73,7 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .rsvp-btn:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
 .rsvp-btn[disabled]{opacity:.5;cursor:default}
 .rsvp-thanks{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--seal);margin:16px 0 0}
-
+ 
 @media print{.tools{display:none}body{background:#fff}.letter{box-shadow:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -90,7 +90,7 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
       <div class="seal" aria-hidden="true">T</div>
     </button>
   </section>
-
+ 
   <article class="letter" id="letter" aria-label="Graduation invitation">
     <p class="kicker">Western Sydney University Vietnam</p>
     <h1>You’re invited to my graduation</h1>
@@ -98,10 +98,11 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
     <p class="body">After years of study, I’m graduating, and it would mean the world to share this day with you.</p>
     <dl>
       <div><dt>Date</dt><dd>Saturday, 7 November 2026</dd></div>
-      <div><dt>Time</dt><dd>Ceremony 08:00 – 10:00<small>Graduates gather from 07:00</small></dd></div>
+      <div><dt>Time</dt><dd>Ceremony 10:30 – 11:30<small>Graduates gather from 07:00</small></dd></div>
       <div><dt>Place</dt><dd>Hall A.116<small>59C Nguyen Dinh Chieu Street, Xuan Hoa Ward, HCMC</small></dd></div>
+      <div><dt>Contact</dt><dd>0398180759 – Thao</dd></div>
     </dl>
-
+ 
     <div class="rsvp" id="rsvp">
       <p class="rsvp-q">Will you be able to join?</p>
       <div class="rsvp-btns">
@@ -110,9 +111,9 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
       </div>
       <p class="rsvp-thanks" id="rsvpThanks" hidden></p>
     </div>
-
+ 
     <p class="close">With love,</p>
-    <p class="sig">Vũ Phương Thảo</p>
+    <p class="sig">VU PHUONG THAO</p>
     <div class="tools"><button class="next" id="next" type="button">Clear name for the next guest</button></div>
   </article>
 </main>
@@ -129,20 +130,20 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
   });
   next.addEventListener('click',function(){guest.value='';guest.focus();});
 })();
-
+ 
 (function(){
   // Paste your Google Apps Script "Web app" URL here (ends in /exec).
   var SHEET_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
-
+ 
   var yesBtn=document.getElementById('rsvpYes'),noBtn=document.getElementById('rsvpNo');
   var thanks=document.getElementById('rsvpThanks'),guest=document.getElementById('guest');
-
+ 
   function sendToSheet(entry){
     if(!SHEET_ENDPOINT||SHEET_ENDPOINT.indexOf('PASTE_')===0)return;
     // text/plain avoids a CORS preflight that Apps Script doesn't handle; the body is still JSON.
     fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(entry)}).catch(function(){});
   }
-
+ 
   function respond(answer){
     yesBtn.disabled=true;noBtn.disabled=true;
     var name=(guest.value||'').trim()||'Guest';
@@ -150,7 +151,7 @@ button.next:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
     thanks.textContent=answer==='yes'?'Thank you, '+name+' — see you there!':'Thank you for letting me know, '+name+'.';
     sendToSheet({name:name,response:answer,ts:new Date().toISOString()});
   }
-
+ 
   yesBtn.addEventListener('click',function(){respond('yes')});
   noBtn.addEventListener('click',function(){respond('no')});
 })();
